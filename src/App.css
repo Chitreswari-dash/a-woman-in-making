@@ -1,0 +1,868 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
+:root {
+  font-family: 'DM Sans', sans-serif;
+  color: #392d2b;
+  background: #f7f0e7;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+a {
+  color: inherit;
+}
+
+.page {
+  overflow: hidden;
+  background: #f7f0e7;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.navbar {
+  min-height: 70px;
+  padding: 18px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  background: #f7f0e7;
+  color: #672a3a;
+  position: relative;
+  z-index: 10;
+}
+
+.signature {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 28px;
+  font-style: italic;
+  text-decoration: none;
+}
+
+.navbar > span,
+.nav-link {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+}
+
+.nav-link {
+  border-bottom: 1px solid #b58a86;
+  padding-bottom: 5px;
+}
+
+/* =========================
+   HERO COVER
+========================= */
+
+.hero-section {
+  min-height: 610px;
+  padding: 110px 24px 120px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #f2e7db;
+  color: #492d30;
+}
+
+/* Only the normal hero content uses this positioning.
+   The bottom notes and caption are positioned separately below. */
+.hero-section > *:not(.hero-photo):not(.hero-overlay) {
+  position: relative;
+  z-index: 2;
+}
+
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 2.2px;
+  line-height: 1.8;
+  color: #87384a;
+  text-transform: uppercase;
+}
+
+.hero-section h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(3.4rem, 8vw, 7.3rem);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -3px;
+  margin: 25px 0;
+}
+
+.hero-section h1 span,
+.intro-section h2 span,
+.becoming-section h2 span,
+.footer h2 span {
+  color: #87384a;
+  font-style: italic;
+}
+
+.hero-description {
+  font-size: 14px;
+  line-height: 1.9;
+  color: #735f58;
+}
+
+.discover-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 26px;
+  padding: 14px 20px;
+  border: 1px solid #87384a;
+  color: #672a3a;
+  text-decoration: none;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  transition: background 250ms ease, color 250ms ease;
+}
+
+.discover-button:hover {
+  background: #672a3a;
+  color: #fffaf4;
+}
+
+/* Full-bleed photographic cover */
+.hero-section.hero-with-photo {
+  isolation: isolate;
+  overflow: hidden;
+  min-height: min(780px, 90vh);
+  padding: 100px 24px 175px;
+  background: #b8a096;
+  color: #fffaf4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Background photo */
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-color: #b8a096;
+  background-image: url('/coverimage.png');
+  background-size: cover;
+  background-position: center 35%;
+  transform: scale(1.04);
+  animation: portrait-zoom 14s ease-in-out 1.5s infinite alternate;
+}
+
+/* Dark overlay for readable text */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    180deg,
+    rgba(39, 25, 25, 0.40),
+    rgba(39, 25, 25, 0.15) 45%,
+    rgba(39, 25, 25, 0.65)
+  );
+}
+
+/* Explicitly centre the main cover content */
+.hero-section.hero-with-photo > .eyebrow,
+.hero-section.hero-with-photo > h1,
+.hero-section.hero-with-photo > .hero-description,
+.hero-section.hero-with-photo > .discover-button {
+  position: relative;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  left: auto;
+  flex: 0 0 auto;
+  width: fit-content;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 2;
+}
+
+.hero-with-photo > .eyebrow {
+  color: #fffaf4;
+}
+
+.hero-with-photo h1 {
+  color: #fffaf4;
+  animation: title-reveal 1.2s ease 0.25s both;
+}
+
+.hero-with-photo h1 span {
+  color: #f5d8d2;
+}
+
+.hero-with-photo .hero-description {
+  color: #fffaf4;
+}
+
+.hero-with-photo .discover-button {
+  border-color: rgba(255, 250, 244, 0.85);
+  color: #fffaf4;
+}
+
+.hero-with-photo .discover-button:hover {
+  background: #fffaf4;
+  color: #672a3a;
+}
+
+/* Bottom-left and bottom-right notes */
+.hero-section.hero-with-photo > .hero-note {
+  position: absolute;
+  top: auto;
+  bottom: 54px;
+  width: max-content;
+  max-width: 34%;
+  margin: 0;
+  z-index: 4;
+  text-align: left;
+  color: #fffaf4;
+}
+
+.hero-section.hero-with-photo > .note-left {
+  left: 7%;
+  right: auto;
+  text-align: left;
+}
+
+.hero-section.hero-with-photo > .note-right {
+  right: 7%;
+  left: auto;
+  text-align: right;
+}
+
+.hero-with-photo .hero-note > span {
+  display: block;
+  color: #fffaf4;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  line-height: 1.5;
+}
+
+.hero-with-photo .hero-note p {
+  color: #fffaf4;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.5;
+  margin: 7px 0 0;
+}
+
+/* Handwritten caption */
+.hero-section.hero-with-photo > .hero-caption {
+  position: absolute;
+  top: auto;
+  right: auto;
+  bottom: 17px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 90%;
+  margin: 0;
+  color: #fffaf4;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.5;
+  text-align: center;
+  white-space: nowrap;
+  z-index: 4;
+}
+
+/* Decorative star */
+.hero-section.hero-with-photo > .hero-decoration {
+  position: absolute;
+  top: 28px;
+  right: 8%;
+  bottom: auto;
+  left: auto;
+  color: #f5d8d2;
+  font-size: 35px;
+  z-index: 3;
+  animation: gentle-spin 18s linear infinite;
+}
+
+/* Curtain opening animation */
+.hero-photo::before,
+.hero-photo::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 50.1%;
+  background: #f7f0e7;
+  animation: curtain-open 1.5s cubic-bezier(0.77, 0, 0.18, 1) 0.1s forwards;
+}
+
+.hero-photo::after {
+  left: auto;
+  right: 0;
+}
+
+@keyframes curtain-open {
+  to {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes portrait-zoom {
+  from {
+    transform: scale(1.04);
+  }
+  to {
+    transform: scale(1.12);
+  }
+}
+
+@keyframes title-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gentle-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================
+   PORTRAIT INTRO
+========================= */
+
+.portrait-section {
+  padding: 90px 9%;
+  overflow: hidden;
+  background: #f0e5d9;
+}
+
+.portrait-heading {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.portrait-heading h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 400;
+  margin: 12px 0;
+}
+
+.portrait-heading h2 span {
+  color: #87384a;
+  font-style: italic;
+}
+
+.portrait-layout {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  min-height: 390px;
+}
+
+.photo-card {
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.photo-frame {
+  position: relative;
+  padding: 10px;
+  background: #fffaf4;
+  box-shadow: 0 12px 35px #55332212;
+  transform: rotate(-2deg);
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+
+.photo-frame img {
+  display: none;
+  width: 100%;
+  height: 390px;
+  object-fit: cover;
+}
+
+.photo-placeholder {
+  min-height: 280px;
+  height: 390px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  color: #793b4a;
+  background:
+    radial-gradient(ellipse at 20% 20%, #e8c6c3 0%, transparent 45%),
+    radial-gradient(ellipse at 80% 80%, #ddc9b5 0%, transparent 48%),
+    #f5e9df;
+}
+
+.photo-placeholder span {
+  font-size: 38px;
+}
+
+.photo-placeholder p {
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.photo-placeholder small {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+}
+
+.photo-caption {
+  display: block;
+  text-align: center;
+  margin-top: 16px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  color: #793b4a;
+  font-size: 15px;
+}
+
+.main-portrait {
+  max-width: 310px;
+}
+
+.main-portrait .photo-frame {
+  transform: rotate(2deg);
+}
+
+.scribble {
+  position: absolute;
+  top: 30px;
+  left: 9%;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  color: #87384a;
+  transform: rotate(-9deg);
+}
+
+.portrait-side-note {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 23px;
+  line-height: 1.9;
+  color: #4b3632;
+}
+
+.portrait-side-note span {
+  color: #87384a;
+  font-style: italic;
+}
+
+/* =========================
+   INTRODUCTION
+========================= */
+
+.intro-section {
+  padding: 100px 20px;
+  text-align: center;
+  background: #fbf6ef;
+}
+
+.intro-section h2,
+.becoming-section h2,
+.footer h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.5rem, 5.5vw, 4.8rem);
+  font-weight: 400;
+  line-height: 1.12;
+}
+
+.intro-copy {
+  max-width: 520px;
+  margin: 22px auto;
+  font-size: 15px;
+  line-height: 1.95;
+  color: #735f58;
+}
+
+/* =========================
+   THE MANY SIDES OF ME
+========================= */
+
+.becoming-section {
+  padding: 100px 8%;
+  text-align: center;
+  background: #f0e5d9;
+}
+
+.qualities {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  margin: 55px auto 0;
+  max-width: 1050px;
+}
+
+.qualities article {
+  padding: 30px 23px;
+  text-align: left;
+  border: 1px solid #dfc9bc;
+  background: rgba(255, 250, 244, 0.55);
+  transition: transform 300ms ease;
+}
+
+.qualities article:hover {
+  transform: translateY(-5px);
+}
+
+.qualities article > span {
+  font-size: 27px;
+  color: #87384a;
+}
+
+.qualities h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.qualities p {
+  font-size: 13px;
+  line-height: 1.9;
+  color: #735f58;
+}
+
+/* =========================
+   POEM
+========================= */
+
+.poem-section {
+  padding: 100px 9%;
+  background: #fbf6ef;
+}
+
+.poem-heading {
+  text-align: center;
+  margin: 0 auto 90px;
+}
+
+.poem-heading h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  line-height: 1.12;
+  margin: 22px 0;
+}
+
+.poem-heading h2 span {
+  color: #87384a;
+  font-style: italic;
+}
+
+.poem-heading > p:last-child {
+  color: #806d65;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+}
+
+.poem-chapter {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  gap: clamp(35px, 8vw, 100px);
+  max-width: 1000px;
+  margin: 0 auto 115px;
+}
+
+.poem-chapter.reverse {
+  grid-template-columns: 0.8fr 1.2fr;
+}
+
+.poem-chapter.reverse .chapter-text {
+  order: 2;
+}
+
+.poem-chapter.reverse .chapter-photo {
+  order: 1;
+}
+
+.chapter-text h3 {
+  color: #87384a;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 18px 0 12px;
+}
+
+.chapter-note {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  color: #958078;
+  margin-bottom: 28px;
+}
+
+.poem-lines {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(15px, 1.5vw, 18px);
+  line-height: 1.95;
+  color: #584640;
+}
+
+.poem-lines p {
+  margin: 0;
+}
+
+.chapter-photo {
+  max-width: 300px;
+}
+
+.chapter-photo .photo-frame {
+  transform: rotate(2deg);
+}
+
+.chapter-photo .photo-placeholder,
+.chapter-photo .photo-frame img {
+  height: 340px;
+}
+
+.photo-card:hover .photo-frame {
+  transform: rotate(0deg) translateY(-5px);
+  box-shadow: 0 20px 40px #55332220;
+}
+
+/* Engineering chapter: let the writing breathe without an image */
+.poem-chapter.no-photo {
+  display: block;
+  max-width: 760px;
+}
+
+/* =========================
+   LAST PAGE
+========================= */
+
+.last-page {
+  text-align: center;
+  padding: 70px 20px;
+  max-width: 700px;
+  margin: 0 auto;
+  border-top: 1px solid #dfc9bc;
+}
+
+.last-page h3 {
+  color: #87384a;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 42px;
+  font-weight: 400;
+}
+
+.last-page > p {
+  font-family: 'Playfair Display', Georgia, serif;
+  color: #584640;
+  font-size: 17px;
+  line-height: 2;
+}
+
+.last-page > span {
+  display: inline-block;
+  margin-top: 28px;
+  color: #87384a;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 22px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+  padding: 90px 20px 45px;
+  text-align: center;
+  background: #f0e5d9;
+}
+
+.footer h2 {
+  max-width: 800px;
+  margin: 25px auto;
+}
+
+.footer-signature {
+  margin-top: 35px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  color: #87384a;
+}
+
+.back-to-top {
+  display: inline-block;
+  margin-top: 28px;
+  color: #87384a;
+  text-decoration: none;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.back-to-top:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   RESPONSIVE LAYOUT
+========================= */
+
+@media (max-width: 700px) {
+  .navbar {
+    padding: 15px 5%;
+    gap: 10px;
+  }
+
+  .navbar > span,
+  .nav-link {
+    font-size: 8px;
+    letter-spacing: 0.8px;
+  }
+
+  .hero-section.hero-with-photo {
+    min-height: 700px;
+    padding: 90px 18px 185px;
+  }
+
+  .hero-section h1 {
+    font-size: clamp(3rem, 13vw, 5rem);
+    letter-spacing: -1.5px;
+  }
+
+  .hero-section.hero-with-photo > .hero-note {
+    bottom: 62px;
+    max-width: 42%;
+  }
+
+  .hero-section.hero-with-photo > .note-left {
+    left: 18px;
+  }
+
+  .hero-section.hero-with-photo > .note-right {
+    right: 18px;
+  }
+
+  .hero-section.hero-with-photo > .hero-note p {
+    font-size: 12px;
+  }
+
+  .hero-section.hero-with-photo > .hero-caption {
+    bottom: 20px;
+    font-size: 11px;
+  }
+
+  .hero-section.hero-with-photo > .hero-decoration {
+    top: 20px;
+    right: 7%;
+  }
+
+  .portrait-section,
+  .poem-section {
+    padding: 65px 7%;
+  }
+
+  .portrait-layout {
+    flex-direction: column;
+    gap: 25px;
+    padding-top: 30px;
+  }
+
+  .scribble {
+    top: 0;
+    left: 0;
+  }
+
+  .portrait-side-note {
+    text-align: center;
+    font-size: 20px;
+  }
+
+  .qualities {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-top: 35px;
+  }
+
+  .qualities article {
+    padding: 25px;
+  }
+
+  .poem-heading {
+    margin-bottom: 65px;
+  }
+
+  .poem-chapter,
+  .poem-chapter.reverse {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-bottom: 75px;
+  }
+
+  .poem-chapter.reverse .chapter-text,
+  .poem-chapter.reverse .chapter-photo {
+    order: initial;
+  }
+
+  .chapter-photo {
+    width: 85%;
+  }
+
+  .chapter-text h3 {
+    font-size: 2.2rem;
+  }
+
+  .last-page {
+    padding: 50px 0;
+  }
+
+  .last-page > p {
+    font-size: 15px;
+  }
+
+  .footer {
+    padding-top: 65px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
