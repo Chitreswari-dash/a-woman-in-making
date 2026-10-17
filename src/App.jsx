@@ -1,6 +1,9 @@
 
 import './App.css'
 
+const imagePath = (filename) =>
+  `${import.meta.env.BASE_URL}${filename}`
+
 const chapters = [
   {
     number: 'I',
@@ -12,7 +15,7 @@ const chapters = [
       'I frame the ordinary, give small things a name,',
       'And write down the feelings that never stay the same.',
     ],
-    photo: '/sunset.jpeg',
+    photo: imagePath('sunset.jpeg'),
     alt: 'Sunsets, coffee, flowers and little candid moments',
   },
   {
@@ -25,7 +28,7 @@ const chapters = [
       'A page becomes a place to start,',
       'A little home for a crowded heart.',
     ],
-    photo: '/poem.jpeg',
+    photo: imagePath('poem.jpeg'),
     alt: 'My poetry and words',
   },
   {
@@ -38,7 +41,7 @@ const chapters = [
       'Though years may change the paths I take,',
       'Some parts of me no time can make me forsake.',
     ],
-    photo: '/odishi.png',
+    photo: imagePath('odishi.png'),
     alt: 'A memory of my Odissi dance journey',
   },
   {
@@ -51,7 +54,7 @@ const chapters = [
       'With code in my hands and dreams in my sight,',
       'I am making my way, one step at a time.',
     ],
-    photo: '/whoim.jpg',
+    photo: imagePath('whoim.jpg'),
     alt: 'A picture of me with the GyanSys placement poster',
   },
   {
@@ -64,7 +67,7 @@ const chapters = [
       'I can be gentle and still choose to be strong,',
       'A heart full of love can still know where it belongs.',
     ],
-    photo: '/painting.png',
+    photo: imagePath('painting.png'),
     alt: 'My original paintings and artwork',
   },
 ]
@@ -152,7 +155,7 @@ function App() {
           <span className="scribble scribble-one">this is me, lately ♡</span>
 
           <PhotoCard
-            src="/portrait2.jpeg"
+            src={imagePath('portrait2.jpeg')}
             alt="A portrait of me"
             label="the girl behind the pages"
             className="main-portrait"
